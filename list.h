@@ -50,6 +50,7 @@ union t_typed_list_ ## T {                                                  \
 struct t_list_element *_list_append(struct t_list *lst, const void *val, struct t_list_type_info ti);
 struct t_list_element *_list_prepend(struct t_list *lst, const void *val, struct t_list_type_info ti);
 void _list_remove(struct t_list *lst, struct t_list_element *el);
+void _list_clear(struct t_list *lst);
 
 
 #define list_count(lst)                                                     (_lst_get(lst)->count)
@@ -59,5 +60,6 @@ void _list_remove(struct t_list *lst, struct t_list_element *el);
 #define list_prepend(lst, val)                                              list_prepend_p((lst), &_to_lvalue(_lst_type(lst), (val)))
 #define list_remove(lst, lst_el)                                            _list_remove(_lst_get(lst), &(lst_el)->el)
 #define list_foreach(lst, el)                                               for (typeof((lst)->el_type) el = (void *)_lst_get(lst)->first; el != nullptr; el = (typeof(el))el->el.next)
+#define list_clear(lst)                                                     _list_clear(lst)
 
 #endif /* __COLLECTIONS_LIST__ */

@@ -11,6 +11,7 @@ ListElement(T) *list_append(List(T) *lst, T val);
 ListElement(T) *list_prepend_p(List(T) *lst, const T *val);
 ListElement(T) *list_prepend(List(T) *lst, T val);
 void list_remove(List(T) *lst, ListElement(T) *el);
+void list_clear(List(T) *lst);
 ```
 
 Loop-macros:
@@ -37,5 +38,14 @@ printf("\nPrint all list elements:\n");
 list_foreach (&l, el) {
     printf("%d\n", el->value);
 }
+
+list_remove(&l, l0);
+
+printf("\nPrint all list elements:\n");
+list_foreach (&l, el) {
+    printf("%d\n", el->value);
+}
+
+list_clear(&l);
 ```
 

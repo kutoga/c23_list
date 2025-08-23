@@ -49,4 +49,16 @@ void _list_remove(struct t_list *lst, struct t_list_element *el)
     } else {
         lst->first = el->next;
     }
+    free(el);
+    --lst->count;
+}
+
+void _list_clear(struct t_list *lst)
+{
+    while (lst->first != nullptr) {
+        struct t_list_element *el = lst->first;
+        lst->first = el->next;
+        free(el);
+    }
+    lst->count = 0;
 }

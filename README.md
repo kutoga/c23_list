@@ -30,7 +30,7 @@ struct ListElement(T) {
 ```C++
 List(int) l = {};
 ListElement(int) *l0 = list_append(&l, 10);
-ListElement(int) *l1 = list_prepend(&l, 9.9); // implicit cast to "int"
+ListElement(int) *l1 = list_prepend(&l, -12);
 printf("l0->value=%d\n", l0->value);
 printf("l1->value=%d\n", l1->value);
 

@@ -27,6 +27,9 @@ struct ListElement(T) {
 ```
 
 ## Example
+
+The following example can be executed by `make && ./main`:
+
 ```C++
 #include "list.h"
 #include <stdio.h>

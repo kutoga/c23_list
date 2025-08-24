@@ -29,7 +29,6 @@ struct t_list_type_info {
 struct t_list_element {
     struct t_list_element *next;
     struct t_list_element *prev;
-    char data[];
 };
 
 #define ListElement(T)                                                      \

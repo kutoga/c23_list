@@ -28,24 +28,29 @@ struct ListElement(T) {
 
 ## Example
 ```C++
-List(int) l = {};
-ListElement(int) *l0 = list_append(&l, 10);
-ListElement(int) *l1 = list_prepend(&l, -12);
-printf("l0->value=%d\n", l0->value);
-printf("l1->value=%d\n", l1->value);
+#include "list.h"
+#include <stdio.h>
 
-printf("\nPrint all list elements:\n");
-list_foreach (&l, el) {
-    printf("%d\n", el->value);
+void print_int_list(const List(int) *l)
+{
+    printf("\nList %p has %lu elements:\n", l, list_count(l));
+    list_foreach(l, el) {
+        printf("- %d\n", el->value);
+    }
+    printf("\n");
 }
 
-list_remove(&l, l0);
-
-printf("\nPrint all list elements:\n");
-list_foreach (&l, el) {
-    printf("%d\n", el->value);
+int main()
+{
+    List(int) l = {};
+    ListElement(int) *l0 = list_append(&l, 10);
+    ListElement(int) *l1 = list_prepend(&l, -12);
+    printf("l0->value=%d\n", l0->value);
+    printf("l1->value=%d\n", l1->value);
+    print_int_list(&l);
+    list_remove(&l, l0);
+    print_int_list(&l);
+    list_clear(&l);
 }
-
-list_clear(&l);
 ```
 
